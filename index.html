@@ -25,7 +25,7 @@
                  document.querySelector("form").addEventListener("submit", function(e) {
                     let answer = document.querySelector("#answer").value.toLowerCase();
                     let message = document.querySelector("#message2");
-                    if (answer == "ed sheeran") {
+                    if (answer.trim() == "ed sheeran") {
                         message.innerHTML = "Correct!";
                     }
                     else {
