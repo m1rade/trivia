@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", function() {
+                let button = document.querySelector("#b2");
+                button.addEventListener("click", function() {
+                    button.style.backgroundColor = 'green';
+                    document.querySelector("#message1").innerHTML = "Correct!";
+                });
+                let buttons = document.querySelectorAll("#b1, #b3, #b4");
+                for (let i = 0; i < buttons.length; i++)
+                {
+                    buttons[i].addEventListener("click", function() {
+                        buttons[i].style.backgroundColor = 'red';
+                        document.querySelector("#message1").innerHTML = "Incorrect!";
+                    });
+                }
+                //check second answer
+                 document.querySelector("form").addEventListener("submit", function(e) {
+                    let answer = document.querySelector("#answer").value.toLowerCase();
+                    let message = document.querySelector("#message2");
+                    if (answer == "ed sheeran") {
+                        message.innerHTML = "Correct!";
+                    }
+                    else {
+                        message.innerHTML = "Incorrect! It's Ed Sheeran";
+                    };
+                    e.preventDefault();
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which of the following is a song by the German heavy metal band “Scorpions”?</h3>
+                <button id="b1">Stairway to Heaven</button>
+                <button id="b2">Wind of Change</button>
+                <button id="b3">Don’t Stop Me Now</button>
+                <button id="b4">Hey Jude</button>
+                <p id="message1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What artist or group has the most streams on Spotify?</h3>
+                <p>Drake, BTS, The Weeknd, Ariana Grande, Ed Sheeran</p>
+                <form>
+                    <input autocomplete="off" id="answer" placeholder="Enter your answer" type="text">
+                    <input type="submit">
+                    <p id="message2"></p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
